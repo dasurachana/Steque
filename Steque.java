@@ -34,6 +34,11 @@ public class Steque<Item> implements Iterable<Item> {
     private Node<Item> last;
     private int n;
 
+    private static class Node<Item>{
+        private Item item;
+        private Node<Item> next;
+    }
+
 
     /**
      * constructs a steque object.
