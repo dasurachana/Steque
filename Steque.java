@@ -136,6 +136,7 @@ public class Steque<Item> implements Iterable<Item> {
             if(!hasNext()) throw new NoSuchElementException();
             else{
                 Item item= current.item;
+                current= current.next;
                 return item;
             }
         }
@@ -154,6 +155,7 @@ public class Steque<Item> implements Iterable<Item> {
         while(i.hasNext()){
             System.out.println(i.next()+" ");
         }
+        System.out.println("deleted elements:");
         while(!steq.isEmpty()){
             System.out.println(steq.pop());
         }
