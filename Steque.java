@@ -125,6 +125,37 @@ public class Steque<Item> implements Iterable<Item> {
      * 
      */
     public Iterator<Item> iterator() {
-
+        return new StequeIterator();
+    }
+    public class StequeIterator implements Iterator<Item>{
+        Node<Item> current= first;
+        public boolean hasNext(){
+            return current!=null;
+        }
+        public Item next(){
+            if(!hasNext()) throw new NoSuchElementException();
+            else{
+                Item item= current.item;
+                return item;
+            }
+        }
+        public void remove(){
+            throw new UnsupportedOperationException();
+        }
+    }
+    public static void main(String[] args){
+        Steque<Integer> steq = new Steque<Integer>();
+        steq.enqueue(1);
+        steq.enqueue(2);
+        steq.push(7);
+        steq.push(15);
+        Iterator<Integer> i= steq.iterator();
+        System.out.println("elements in steque:");
+        while(i.hasNext()){
+            System.out.println(i.next()+" ");
+        }
+        while(!steq.isEmpty()){
+            System.out.println(steq.pop());
+        }
     }
 }
